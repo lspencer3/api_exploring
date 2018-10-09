@@ -5,6 +5,9 @@ import API from "./apisearch.js";
 
 
 class Search extends Component {
+
+
+
   render() {
     return (
             <div style={{display:"flex", height:"100%"}}>
@@ -70,7 +73,7 @@ class Search extends Component {
         const movie = $("#moviename").val().trim();
         API.getMovie(movie)
             .then(res => {
-                //console.log(res)
+                console.log(res)
             }).catch(err => console.log(err));
     }
 
@@ -80,7 +83,7 @@ class Search extends Component {
             const song = $("#songname").val().trim();
             API.getSong(song)
             .then(res => {
-                console.log(res.data)
+                console.log(res)
             }).catch(err => console.log(err));
 
     }

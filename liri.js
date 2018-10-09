@@ -1,18 +1,10 @@
 
 
-//create filesystem variable
-var fs = require('fs');
-
-//created variable for keys from keys file
-var keys = require("./keys.js");
-
 //create variables for installs
 var Twitter = require("twitter");
 var Spotify = require("node-spotify-api");
 
 const path = require("path");
-//const http = require('http');
-//const hostname = '127.0.0.1';
 const port = 8000;
 const express = require("express");
 
@@ -29,31 +21,6 @@ app.use(express.static("client/build"));
 
 require("./movieapi.js")(app)
 require("./musicapi.js")(app)
-
-
-
-/*const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  //res.setHeader('Content-Type', 'text/plain');
-  fs.readFile(path.join(__dirname, "./build/index.html"), function (error, pgResp) {
-    if (error) {
-      res.writeHead(404);
-      res.write('Contents you are looking are Not Found');
-      res.end()
-    } 
-    else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      //console.log('success')
-      res.write(pgResp);
-      res.end()
-    }
-  })
-});
-
-server.listen(port, hostname, () => {
-  console.log(`😀Server running at http://${hostname}:${port}/`);
-});
-*/
 
 
 // Send every request to the React app

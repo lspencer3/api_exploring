@@ -18,9 +18,19 @@ module.exports = function (app){
     //console.log('hello')
     console.log(req.query.query)
 
-    omdbIt(req.query.query)
-        
-    })
+    //omdbIt(req.query.query)
+
+    request("http://www.omdbapi.com/?t="+req.query.query+"&y=&plot=short&apikey="+omdbKey, function(error, response, body) {
+      if(!error && response.statusCode === 200) {
+
+        console.log(JSON.parse(body))
+        res.send(JSON.parse(body))
+      }
+      else {
+        console.log(err);
+      }
+    });      
+  })
 };
 
 
