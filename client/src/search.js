@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import { Section, Container, Title, SubTitle, Input, Button, Hero, } from 'reactbulma'
+import { Section, Container, Title, SubTitle, Input, Button, Hero, Card } from 'reactbulma'
 import $ from "jquery";
 import API from "./apisearch.js";
 
 
 class Search extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state={
+            results: [],
+        }
+    }
 
 
 
@@ -58,6 +65,33 @@ class Search extends Component {
                         </form>
                     </Container>
                     </Section>
+
+                    <Section style={{height:"100vh", width:"105%"}}>
+
+                    <Container style={{textAlign:"center"}}>
+
+                          <div style={{display:"inline-block", width:"20%", margin:"3%" }}>
+                              <Card>
+                                  <Card.Image src={this.state.results.Poster} square='4by3' />
+                                  <Card.Header>
+                                      <Card.Header.Title>
+                                          {this.state.results.Title}
+                                          <br></br>
+                                      </Card.Header.Title>
+                                  </Card.Header>
+                                  <a  target="_blank" href={this.state.results.Website}>View Website</a>
+                                  <p>
+                            {this.state.results.Rated}
+                            {this.state.results.Year}
+                            {this.state.results.Genre}
+                            {this.state.results.Actors}
+                            </p>
+                              </Card>
+                          </div>
+                </Container>
+
+
+        </Section>
                 </div>
             </div>
         )
@@ -71,7 +105,10 @@ class Search extends Component {
         const movie = $("#moviename").val().trim();
         API.getMovie(movie)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
+                this.setState({results:res.data})
+
+
             }).catch(err => console.log(err));
     }
 
