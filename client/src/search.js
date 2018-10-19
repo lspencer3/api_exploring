@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Section, Container, Title, SubTitle, Input, Button, Hero} from 'reactbulma'
+import { Section, Container, Title, SubTitle, Input, Button, Hero, } from 'reactbulma'
 import $ from "jquery";
 import API from "./apisearch.js";
 
@@ -10,9 +10,10 @@ class Search extends Component {
 
   render() {
     return (
+        <div>
             <div style={{display:"flex", height:"100%"}}>
 
-                <Section style={{height:"100vh", width:"50%", backgroundImage:"url(https://vignette.wikia.nocookie.net/total-movies/images/2/23/Songs_from_Movies.jpg/revision/latest?cb=20131122153346)", backgroundPosition:"center", backgroundRepeat:"None", backgroundSize:"cover", position:"relative"}}>
+                <Section style={{height:"100vh", width:"35%", backgroundImage:"url(https://vignette.wikia.nocookie.net/total-movies/images/2/23/Songs_from_Movies.jpg/revision/latest?cb=20131122153346)", backgroundPosition:"center", backgroundRepeat:"None", backgroundSize:"cover", position:"relative"}}>
 
                     <Hero style={{position:"absolute", bottom:"40%", background:"rgba(255,255,255,0.9)", width:"75%"}}>
                         <Hero.Body >
@@ -21,7 +22,7 @@ class Search extends Component {
                                 Ultimate Entertainment Search Engine
                             </Title>
                             <SubTitle>
-                                Enter a Title or Name to search any Movie on the Right.
+                                Enter a Title or Name to search any Movie or Song on the Right.
                             </SubTitle>
                             </Container>
                         </Hero.Body>
@@ -29,7 +30,7 @@ class Search extends Component {
 
                 </Section>
 
-                <Section style={{width:"50%"}}>
+                <Section style={{height:"100vh", width:"35%"}}>
 
                     <Container style={{width:"90%",bottom:"-30%", textAlign:"center"}}>
                         <form  onSubmit={this.handleSubmitMovie}>
@@ -44,12 +45,9 @@ class Search extends Component {
 
                         </form>
                     </Container>
-                </Section>
-                <Section style={{width:"50%"}}>
 
-                    <Container style={{width:"90%",bottom:"-30%", textAlign:"center"}}>
+                    <Container style={{width:"90%",bottom:"-40%", textAlign:"center"}}>
                         <form  onSubmit={this.handleSubmitSong}>
-
                             <div>
                                 <h2>Enter a song to search</h2>
                                 <Input style={{marginBottom:"2%"}} warning medium id="songname" placeholder="name"/>
@@ -57,10 +55,10 @@ class Search extends Component {
                             <div>
                                 <Button  type="submit" primary>Search</Button>
                             </div>
-
                         </form>
                     </Container>
-                </Section>
+                    </Section>
+                </div>
             </div>
         )
     }
